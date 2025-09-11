@@ -1,0 +1,210 @@
+/* --------------------
+   全体レイアウト
+-------------------- */
+body {
+  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f8fcfb; /* 柔らかい薄水色 */
+  color: #333;
+  line-height: 1.6;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #00a7b5; /* 水色寄り青緑 */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #00a7b5;
+}
+
+.section_title_container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  display: inline-block; /* インライン要素のように扱う */
+  border-bottom: 5px solid #64b5f6; /* テキストの下にボーダーを引く */
+  font-size: 1.5rem;
+  color: #008c65; /* アクセントカラー */
+  padding-bottom: 2px; /* テキストとボーダーの間に少し隙間を作る */
+}
+
+/* --------------------
+   リンク
+-------------------- */
+a {
+  color: #00a7b5;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  color: #008c65;
+  text-decoration: underline;
+}
+
+/* --------------------
+   フォーム
+-------------------- */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+input[type="date"],
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cce5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-block;
+  background: #00a7b5;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #008c65;
+}
+
+/* --------------------
+   テーブル
+-------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e6f2f0;
+}
+
+th {
+  background: #00a7b5;
+  color: #fff;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background: #f2fbf9;
+}
+
+tr:hover {
+  background: #e0f7f4;
+  transition: background 0.2s;
+}
+/* --------------------
+    ボタンコンテナ
+-------------------- */
+.button_container {
+  display: flex;
+  justify-content: center; /* ボタンを中央に配置 */
+  gap: 20px; /* ボタン間のスペース */
+  margin: 20px 0;
+}
+
+/* --------------------
+    登録ボタン
+-------------------- */
+.register_btn a {
+  display: inline-block;
+  background: #00a7b5; /* モンブー水色 */
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 9999px; /* まん丸ボタン */
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 167, 181, 0.3);
+}
+
+.register_btn a:hover {
+  background: #008c65; /* 濃いグリーン */
+  box-shadow: 0 6px 12px rgba(0, 140, 101, 0.3);
+  transform: translateY(-2px);
+}
+
+/* --------------------
+    変更ボタン
+-------------------- */
+.change_btn a {
+  display: inline-block;
+  background: #64b5f6; /* 薄いエメラルドグリーン */
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(100, 181, 246, 0.3);
+}
+
+.change_btn a:hover {
+  background: #42a5f5; /* 濃いエメラルドグリーン */
+  box-shadow: 0 6px 12px rgba(66, 165, 245, 0.3);
+  transform: translateY(-2px);
+}
+
+
+/* --------------------
+   グラフエリア
+-------------------- */
+#expensesChart {
+  width: 60%;
+  height: 40%;
+  max-width: 800px;
+  margin: 20px auto;
+  display: block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+/* --------------------
+   フッター
+-------------------- */
+footer {
+margin-top: 20px;
+text-align: center;
+}
