@@ -14,13 +14,11 @@
 	    $this->response = new Response();
 	    $this->databaseManager = new DatabaseManager();
 
-	    // PostgreSQL 接続用に変更
 	    $this->databaseManager->connect([
-	        'hostname' => 'db',        // PostgreSQL サーバー名 or IP
-	        'port'     => 5432,        // ポート（省略可、デフォルト5432）
-          'username' => 'user',          // DB_USER
-          'password' => 'password',      // DB_PASSWORD
-          'database' => 'my_database',   // DB_NAME
+        'hostname' => getenv('DB_HOST'),
+        'username' => getenv('DB_USER'),
+        'password' => getenv('DB_PASSWORD'),
+        'database' => getenv('DB_NAME'),
 	    ]);
 	}
 
@@ -68,7 +66,8 @@
         '/expenses' => ['controller' => 'expenses', 'action' =>'index'],
         '/expenses/create' => ['controller' => 'expenses', 'action' =>'create'],
         '/edit' => ['controller' => 'edit', 'action' =>'index'],
-        '/edit/create' => ['controller' => 'edit', 'action' =>'create'],
+        '/edit/edit' => ['controller' => 'edit', 'action' =>'edit'],
+        '/edit/update' => ['controller' => 'edit', 'action' =>'update'],
       ];
       return $routes;
     }

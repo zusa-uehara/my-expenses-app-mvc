@@ -1,7 +1,6 @@
 <?php
 class ExpensesController extends Controller {
 
-
     public function index() {
 
         $expenses = $this->databaseManager->get('MyExpenses')->fetchAllExpenses();
@@ -14,7 +13,6 @@ class ExpensesController extends Controller {
 
     public function create() {
         $errors = [];
-
         $expensesModel = $this->databaseManager->get('MyExpenses');
         $expenses = $this->databaseManager->get('MyExpenses')->fetchAllExpenses();
 
@@ -29,18 +27,16 @@ class ExpensesController extends Controller {
             if (!$date) $errors[] = "日付を入力してください";
             if (!is_numeric($cost) || $cost < 0) $errors[] = "金額は0以上の数字で入力してください";
             if (!array_key_exists($category, $valid_categories)) $errors[] = "不正なカテゴリです";
-            if (strlen($memo) > 200) $errors[] = "メモは200文字以内で入力してください";
+            if (mb_strlen($memo) > 200) $errors[] = "メモは200文字以内で入力してください";
 
             if (empty($errors)) {
                 $expensesModel->insert($date, $cost, $category, $memo);
 
-            // POST-Redirect-GET: 二重送信防止 & 最新一覧を取得
             header("Location: /expenses");
             exit;
             }
         }
 
-    // 登録成功していないとき、またはエラーがあったときだけここに来る
     $expenses = $expensesModel->fetchAllExpenses();
 
         return $this->render([

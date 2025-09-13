@@ -12,7 +12,7 @@
     <?= $content ?>
   </div>
   <footer>
-    © 2025 azoosa uehara | This is a portfolio project.
+    © 2025 zoosa uehara | This is a portfolio project.
   </footer>
 </body>
 </html>

@@ -1,24 +1,29 @@
-<h2>支出編集</h2>
-
-<?php if (!empty($errors)): ?>
-<div style="color:red;">
-  <?php foreach ($errors as $err) echo "<p>$err</p>"; ?>
+<div class="section_title_container">
+    <h2>支出編集　ID選択</h2>
 </div>
-<?php endif; ?>
 
-
-<form method="post">
-  <label>日付：<input type="date" name="date" value="<?= htmlspecialchars($row['date']) ?>" required></label><br>
-  <label>金額：<input type="number" name="cost" min="0" value="<?= htmlspecialchars($row['cost']) ?>" required></label><br>
-  <label>カテゴリ：
-    <select name="category">
-      <?php foreach (['rent'=>'家賃','utilities'=>'光熱費','living'=>'生活費・雑費','entertainment'=>'交際費','medical'=>'医療費'] as $key=>$label): ?>
-      <option value="<?= $key ?>" <?= $row['category']==$key?'selected':'' ?>><?= $label ?></option>
-      <?php endforeach; ?>
-    </select>
-  </label><br>
-  <label>メモ：<input type="text" name="memo" maxlength="200" value="<?= htmlspecialchars($row['memo']) ?>"></label><br>
-
-  <button type="submit" name="action" value="update">更新する</button>
-  <button type="submit" name="action" value="delete" onclick="return confirm('削除しますか？');">削除する</button>
+<form action="/edit/edit" method="post">
+    <label for="edit_id">IDを入力してください：
+        <input type="number" name="id" id="edit_id" min="1" required>
+    </label>
+    <button type="submit">編集する</button>
 </form>
+
+<div class="section_title_container">
+    <h2>支出一覧</h2>
+</div>
+
+<table border="1" cellpadding="8">
+<tr>
+  <th>ID</th><th>日付</th><th>金額</th><th>カテゴリ</th><th>メモ</th>
+</tr>
+<?php foreach ($rows as $row): ?>
+<tr>
+  <td><?= htmlspecialchars($row['id']) ?></td>
+  <td><?= htmlspecialchars($row['date']) ?></td>
+  <td><?= htmlspecialchars($row['cost']) ?> 円</td>
+  <td><?= htmlspecialchars($category_labels[$row['category']] ?? $row['category']) ?></td>
+  <td><?= htmlspecialchars($row['memo']) ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
