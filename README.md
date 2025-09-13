@@ -46,15 +46,15 @@ PHP と PostgreSQL を使い、「独学エンジニア」というサイトの�
 
 （PlantUML で作成）
 
-![Class Diagram](docs/class_diagram.png)
+![Class Diagram](docs/class.png)
 
 ### シーケンス図
 
-![Sequence Diagram](docs/sequence_diagram.png)
+![Sequence Diagram](docs/sequence.png)
 
 ### ユースケース図
 
-![Usecase Diagram](docs/usecase_diagram.png)
+![Usecase Diagram](docs/usecase.png)
 
 ---
 
