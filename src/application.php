@@ -20,6 +20,8 @@
         'password' => getenv('DB_PASSWORD'),
         'database' => getenv('DB_NAME'),
 	    ]);
+
+      $this->databaseManager->initDatabase();
 	}
 
     public function run(){

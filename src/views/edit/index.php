@@ -22,7 +22,7 @@
   <td><?= htmlspecialchars($row['id']) ?></td>
   <td><?= htmlspecialchars($row['date']) ?></td>
   <td><?= htmlspecialchars($row['cost']) ?> 円</td>
-  <td><?= htmlspecialchars($category_labels[$row['category']] ?? $row['category']) ?></td>
+  <td><?= htmlspecialchars($valid_categories[$row['category']] ?? $row['category']) ?></td>
   <td><?= htmlspecialchars($row['memo']) ?></td>
 </tr>
 <?php endforeach; ?>

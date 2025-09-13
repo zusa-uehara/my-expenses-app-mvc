@@ -1,0 +1,81 @@
+@startuml
+package "core" {
+  class Controller {
+    +runControllerAction($action)
+    +render($variables, $template, $layout)
+  }
+  class DatabaseModel {
+    +fetchAll($sql, $params)
+    +executeSql($sql, $params)
+  }
+  class DatabaseManager {
+    +connect($params)
+    +get($modelName)
+  }
+  class Router {
+    +resolve($pathInfo)
+  }
+  class Request {
+    +isPost()
+    +getPathInfo()
+  }
+  class Response {
+    +send()
+    +setContent($content)
+    +setStatusCode($code, $text)
+  }
+  class View {
+    +render($path, $variables, $layout)
+  }
+  class HttpNotFoundException
+  class Application {
+    +run()
+    +runAction($controller, $action)
+    +registerRoutes()
+  }
+}
+
+package "controllers" {
+  class DashboardController {
+    +index()
+  }
+  class ExpensesController {
+    +index()
+    +create()
+    +edit()
+    +update()
+    +delete()
+  }
+}
+
+package "models" {
+  class MyExpenses {
+    +fetchAllExpenses()
+    +fetchMonthlyTotals()
+    +insert($date, $cost, $category, $memo)
+    +update($id, $date, $cost, $category, $memo)
+    +delete($id)
+  }
+}
+
+' 継承
+DashboardController --|> Controller
+ExpensesController --|> Controller
+MyExpenses --|> DatabaseModel
+
+' 使用関係
+Application ..> Router
+Application ..> Request
+Application ..> Response
+Application ..> DatabaseManager
+Application ..> HttpNotFoundException
+
+Controller ..> View
+Controller ..> Response
+Controller ..> HttpNotFoundException
+
+DatabaseModel ..> DatabaseManager
+ExpensesController ..> MyExpenses
+Router ..> Request
+View ..> Response
+@enduml

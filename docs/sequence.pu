@@ -1,0 +1,32 @@
+@startuml
+actor User
+participant "index.php" as Web
+participant "Application" as App
+participant "Router" as Router
+participant "Controller" as Control
+participant "MyExpenses" as Model
+participant "View" as View
+participant "Response" as Response
+participant "Request"
+
+User -> Web: ブラウザでアクセス
+Web -> App: $app->run()
+App -> Request: new Request()
+App -> Router: resolve
+Router --> App: route info
+App -> Control: runAction(controller, action)
+Control -> Model: fetchMonthlyTotals()など
+Model --> Control: results
+Control -> View: render(variables)
+View --> Control: HTML content
+Control --> App: content
+App -> Response: setContent(content)
+App -> Response: send()
+Response --> User: HTML page
+
+== エラーフロー ==
+Control -> App: throw HttpNotFoundException
+App -> Response: setStatusCode(404, "Not Found")
+App -> Response: send()
+Response --> User: 404 Page
+@enduml

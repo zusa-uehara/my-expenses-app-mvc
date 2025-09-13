@@ -1,0 +1,17 @@
+@startuml
+title My Expense Management System - ユースケース図
+
+actor User as ユーザー
+
+rectangle "My Expense Management System" {
+    ユーザー --> (トップ画面を表示する)
+    ユーザー --> (支出を登録する)
+    ユーザー --> (支出を編集する)
+    ユーザー --> (支出を削除する)
+
+    (トップ画面を表示する) ..> (支出のグラフを見る)
+    (支出を登録する) ..> (支出一覧を見る)
+    (支出を編集する) ..> (支出一覧を見る)
+    (支出を削除する) ..> (支出一覧を見る)
+}
+@enduml

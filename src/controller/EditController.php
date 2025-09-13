@@ -101,12 +101,10 @@ class EditController extends Controller {
         if (empty($errors)) {
             if ($action === 'update') {
                 $expensesModel->update($id, $row['date'], $row['cost'], $row['category'], $row['memo']);
-                // 更新後に一覧にリダイレクト
                 header("Location: /edit");
                 exit;
             } elseif ($action === 'delete') {
                 $expensesModel->delete($id);
-                // 削除後に一覧にリダイレクト
                 header("Location: /edit");
                 exit;
             }
